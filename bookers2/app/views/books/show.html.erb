@@ -1,0 +1,8 @@
+<div class="book">
+  <p>タイトル名：<%= @book.title %></p>
+  <p>感想：<%= @book.body %></p>
+  <p>ユーザーネーム：<%= @book.user.name %></p>
+  <% if @book.user == current_user %>
+    <%= link_to "Destroy",book_path(@book),method: :delete %>
+  <% end %>
+</div>
