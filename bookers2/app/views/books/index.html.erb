@@ -1,3 +1,5 @@
+<table class="table table-striped">
+
 <h1>New book</h1>
 <%= form_with model: @book,local:true do |f| %>
   <h4>タイトル</h4>
@@ -16,3 +18,4 @@
   <p>ユーザーネーム：<%= book.user.name %></p>
 </div>
 <% end %>
+</table>

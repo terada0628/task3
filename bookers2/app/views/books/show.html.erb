@@ -3,6 +3,7 @@
   <p>感想：<%= @book.body %></p>
   <p>ユーザーネーム：<%= @book.user.name %></p>
   <% if @book.user == current_user %>
+    <%= link_to "Edit",edit_book_path(@book) %>
     <%= link_to "Destroy",book_path(@book),method: :delete %>
   <% end %>
 </div>

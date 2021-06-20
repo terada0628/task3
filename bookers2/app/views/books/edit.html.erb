@@ -1,0 +1,13 @@
+<h1>Editing Book</h1>
+
+<%= form_with model:@Book,local: true do |f| %>
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <%= f.label :body, "Opinion" %>
+  <%= f.text_field :body %>
+  <%= f.submit "Update Book" %>
+<% end %>
+<%= link_to "Show",book_path(@book)%>
+<%= link_to "Back",book_path(@book),method: :delete %>
+
+
