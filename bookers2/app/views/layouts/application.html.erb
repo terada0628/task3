@@ -26,29 +26,29 @@
 
             <% if user_signed_in? %>
             <li>
-              <%= link_to 'Home',user_path(current_user.id) %>
+              <%= link_to 'Home',user_path(current_user.id),class: "fas fa-home" %>
             </li>
             <li>
-              <%= link_to 'Users',users_path %>
+              <%= link_to 'Users',users_path,class: "fas fa-users" %>
             </li>
             <li>
-              <%= link_to "Books",books_path %>
+              <%= link_to 'Books',books_path,class: "fas fa-book-open" %>
             </li>
             <li>
-              <%= link_to "logout", destroy_user_session_path, method: :delete %>
+              <%= link_to 'logout',destroy_user_session_path, method: :delete,class: "fas fa-sign-out-alt" %>
             </li>
             <% else %>
-              <li>
-              <%= link_to 'Home',root_path %>
+            <li>
+              <%= link_to 'Home',root_path,class: "fas fa-home" %>
             </li>
             <li>
-              <%= link_to 'About',homes_about_path %>
+              <%= link_to 'About',homes_about_path,class: "fas fa-link" %>
             </li>
             <li>
-              <%= link_to "sign up", new_user_registration_path %>
+              <%= link_to 'sign up',new_user_registration_path,class: "fas fa-user-plus" %>
             </li>
             <li>
-              <%= link_to "login", new_user_session_path %>
+              <%= link_to 'login',new_user_session_path,class: "fas fa-sign-out-alt" %>
             </li>
             <% end %>
             </ul>
@@ -57,6 +57,7 @@
       </nav>
     </header>
     <main class="mb-auto">
+    <%= render 'layouts/flash' %>
     <%= yield %>
     </main>
 
@@ -72,3 +73,5 @@
 
   </body>
 </html>
+
+
