@@ -5,9 +5,9 @@ class SearchController < ApplicationController
     @how =params["search"]["how"]         #選択した検索方法howを@howに代入
     @datas = search_for(@how, @model, @value)   #search_forの引数にインスタンス変数を定義
   end             #@datasに最終的な検索結果が入ります
-  
+
   private
-  
+
   def match(model, value)         #def search_forでhowがmatchだった場合の処理
     if model == 'user'            #modelがuserの場合の処理
       User.where(name: value)     #whereでvalueと完全一致するnameを探します
@@ -15,15 +15,15 @@ class SearchController < ApplicationController
       Book.where(title: value)
     end
   end
-  
+
   def forward(model, value)
     if model == 'user'
       User.where("name LIKE ?", "#{value}%")
-    elsif model =='book'
+    elsif model == 'book'
       Book.where("title LIKE ?", "#{value}%")
     end
   end
-  
+
   def backward(model, value)
     if model == 'user'
       User.where("name LIKE ?", "%#{value}")
@@ -31,7 +31,7 @@ class SearchController < ApplicationController
       Book.where("title LIKE ?", "%#{value}")
     end
   end
-  
+
   def partical(model, value)
     if model == "user"
       User.where("name LIKE ?", "%#{value}%")
@@ -39,7 +39,7 @@ class SearchController < ApplicationController
       Book.where("title LIKE ?", "%#{value}%")
     end
   end
-  
+
   def search_for(how, model, value)   #searchアクションで定義した情報が引数に入っている
     case how            #検索方法のhowの中身がどれなのかwhenの条件分岐の中から探す処理
     when 'match'
