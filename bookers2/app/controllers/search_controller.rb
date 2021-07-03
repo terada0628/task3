@@ -8,13 +8,14 @@ class SearchController < ApplicationController
 
   private
 
-  def match(model, value)         #def search_forでhowがmatchだった場合の処理
+  def match(model, value)        #def search_forでhowがmatchだった場合の処
     if model == 'user'            #modelがuserの場合の処理
       User.where(name: value)     #whereでvalueと完全一致するnameを探します
     elsif model == 'book'
       Book.where(title: value)
     end
   end
+
 
   def forward(model, value)
     if model == 'user'
