@@ -4,7 +4,7 @@ class PostCommentsController < ApplicationController
     comment = current_user.post_comments.new(post_comment_params)
     comment.book_id = book.id
     if comment.save
-    redirect_back(fallback_location: root_path)
+    render :post_comments
     else
     redirect_to book_path(book)
     end
@@ -12,7 +12,7 @@ class PostCommentsController < ApplicationController
 
   def destroy
     PostComment.find_by(id: params[:id], book_id: params[:book_id]).destroy
-    redirect_back(fallback_location: root_path)
+    render :post_comments
   end
 
   private
