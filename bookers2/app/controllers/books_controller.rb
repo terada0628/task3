@@ -1,6 +1,5 @@
 class BooksController < ApplicationController
 
-
   def create
     @new_book = Book.new(book_params)
     @new_book.user_id = current_user.id
